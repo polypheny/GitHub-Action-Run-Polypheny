@@ -26846,7 +26846,10 @@ async function main() {
 	const working_directory = core.getInput('working-directory');
 	const default_store = core.getInput('default-store');
 
-	process.chdir(working_directory);
+	if (working_directory !== '') {
+	    process.chdir(working_directory);
+	}
+
 	let args = ['-jar', jar, '-resetCatalog', '-resetDocker'];
 	if (!autodocker) {
 	    args = args.concat(['-noAutoDocker']);

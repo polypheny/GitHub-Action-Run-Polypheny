@@ -18,7 +18,7 @@ inputs:
   working-directory:
     description: 'The working directory of the task'
     required: false
-    default: '.'
+    default: ''
   default-store:
     description: 'The default store setting for Polypheny'
     required: false

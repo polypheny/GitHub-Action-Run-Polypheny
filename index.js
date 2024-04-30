@@ -25,17 +25,17 @@ async function main() {
     try {
 	const jar = core.getInput('jar');
 	const cmd = core.getInput('cmd');
-	const autodocker = core.getInput('autodocker');
+	const autodocker = core.getBooleanInput('autodocker');
 	const working_directory = core.getInput('working-directory');
+	const default_store = core.getInput('default-store');
 
 	process.chdir(working_directory);
-	let args;
-	if (autodocker === 'true') {
-	    args =  ['-jar', jar, '-resetCatalog', '-resetDocker'];
-	} else if (autodocker === 'false') {
-	    args =  ['-jar', jar, '-resetCatalog', '-resetDocker', '-noAutoDocker'];
-	} else {
-	    throw new Error(`Invalid value for option autodocker: ${autodocker}`);
+	let args = ['-jar', jar, '-resetCatalog', '-resetDocker'];
+	if (!autodocker) {
+	    args = args.concat(['-noAutoDocker']);
+	}
+	if (default_store !== '') {
+	    args = args.concat(['-defaultStore', default_store]);
 	}
 	polypheny = spawn('java', args);
 	polypheny.stdout.on('data', data => {

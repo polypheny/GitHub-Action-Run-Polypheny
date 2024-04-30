@@ -1,6 +1,6 @@
 {
   "name": "github-action-run-polypheny",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A GitHub action to run Polypheny in CI pipelines.",
   "main": "index.js",
   "scripts": {

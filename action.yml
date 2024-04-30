@@ -1,6 +1,10 @@
 name: 'Run Polypheny'
 description: 'Start a Polypheny instance for a task'
 inputs:
+  java:
+    description: 'The java executable to use'
+    required: false
+    default: 'java'
   jar:
     description: 'Polypheny JAR file to use'
     required: true

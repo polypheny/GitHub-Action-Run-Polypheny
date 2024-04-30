@@ -26839,6 +26839,7 @@ async function waitUntilReady(client) {
 async function main() {
     let polypheny = undefined;
     try {
+	const java = core.getInput('java');
 	const jar = core.getInput('jar');
 	const cmd = core.getInput('cmd');
 	const autodocker = core.getBooleanInput('autodocker');
@@ -26853,7 +26854,7 @@ async function main() {
 	if (default_store !== '') {
 	    args = args.concat(['-defaultStore', default_store]);
 	}
-	polypheny = spawn('java', args);
+	polypheny = spawn(java, args);
 	polypheny.stdout.on('data', data => {
 	});
 	polypheny.stderr.on('data', data => {

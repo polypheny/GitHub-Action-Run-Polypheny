@@ -21,6 +21,7 @@ async function waitUntilReady(client) {
 }
 
 async function main() {
+    let polypheny = undefined;
     try {
 	const jar = core.getInput('jar');
 	const cmd = core.getInput('cmd');
@@ -36,7 +37,7 @@ async function main() {
 	} else {
 	    throw new Error(`Invalid value for option autodocker: ${autodocker}`);
 	}
-	const polypheny = spawn('java', args);
+	polypheny = spawn('java', args);
 	polypheny.stdout.on('data', data => {
 	});
 	polypheny.stderr.on('data', data => {
@@ -59,6 +60,10 @@ async function main() {
 	polypheny.kill('SIGINT');
     } catch (error) {
 	core.setFailed(error.message);
+    } finally {
+	if (polypheny !== undefined) {
+	    polypheny.kill('SIGINT');
+	}
     }
 }
 

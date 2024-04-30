@@ -13,7 +13,8 @@ inputs:
     default: 'true'
   working-directory:
     description: 'The working directory of the task'
-    required: true
+    required: false
+    default: '.'
 
 runs:
   using: 'node20'

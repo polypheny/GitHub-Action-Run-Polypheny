@@ -18,7 +18,6 @@ async function waitUntilReady(client) {
 	} catch (error) {
 	    console.log(error);
 	    await new Promise(resolve => setTimeout(() => resolve(), 1000));
-	    continue;
 	}
     }
 }

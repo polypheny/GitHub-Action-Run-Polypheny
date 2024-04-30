@@ -26,6 +26,8 @@ async function main() {
     try {
 	const jar = core.getInput('jar');
 	const cmd = core.getInput('cmd');
+	const working_directory = core.getInput('working-directory');
+	process.chdir(working_directory);
 	const polypheny = spawn('java', ['-jar', jar, '-resetCatalog', '-resetDocker'], );
 	polypheny.stdout.on('data', data => {
 	});

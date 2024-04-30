@@ -7,6 +7,10 @@ inputs:
   cmd:
     description: 'Command to run'
     required: true
+  autodocker:
+    description: 'Automatically connect to local Docker instance'
+    required: false
+    default: 'true'
   working-directory:
     description: 'The working directory of the task'
     required: true

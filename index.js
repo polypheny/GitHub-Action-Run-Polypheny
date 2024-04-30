@@ -15,7 +15,6 @@ async function waitUntilReady(client) {
 	    }
 	    return Promise.resolve();
 	} catch (error) {
-	    console.log(error);
 	    await new Promise(resolve => setTimeout(() => resolve(), 1000));
 	}
     }
@@ -39,10 +38,8 @@ async function main() {
 	}
 	const polypheny = spawn('java', args);
 	polypheny.stdout.on('data', data => {
-	    process.stdout.write(data);
 	});
 	polypheny.stderr.on('data', data => {
-	    process.stderr.write(data);
 	});
 
 	await waitUntilReady(new http.HttpClient(requestOptions={allowRetries: true, maxRetries: 10}));

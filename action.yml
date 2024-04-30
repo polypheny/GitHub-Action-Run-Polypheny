@@ -1,0 +1,10 @@
+name: 'Run Polypheny'
+description: 'Start a Polypheny instance for a task'
+inputs:
+  jar:
+    description: 'Polypheny JAR file to use'
+    required: true
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

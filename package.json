@@ -1,0 +1,24 @@
+{
+  "name": "github-action-run-polypheny",
+  "version": "0.1.0",
+  "description": "A GitHub action to run Polypheny in CI pipelines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polypheny/GitHub-Action-Run-Polypheny.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/polypheny/GitHub-Action-Run-Polypheny/issues"
+  },
+  "homepage": "https://github.com/polypheny/GitHub-Action-Run-Polypheny#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@actions/http-client": "^2.2.1"
+  }
+}
